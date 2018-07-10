@@ -46,15 +46,10 @@ class Event:
         finally:
             return cls(date, location, num_pilots_n)
 
-    def addPilot(num_pilots_n):
-        pilot = Pilot.newPilot(pilot)
-        return pilot
-
-    # def registerPilot(self, num_pilots_n):
-    #     i = 0
-    #     for i in range(1, num_pilots_n):
-    #         i = i + 1
-    #         return Pilot.addPilot()
+    def addPilot():
+        first = input("First name: ")
+        last = input("last name: ")
+        return Pilot.newPilot(first, last)
 
 
 class Pilot:
@@ -62,23 +57,23 @@ class Pilot:
         self.first = first
         self.last = last
 
-    @classmethod
-    def pilot_input(clspilot):
-        first = input("First name: ")
-        last = input("last name: ")
-        return cls(first, last)
+    # @classmethod
+    # def pilot_input(clspilot):
+    #     first = input("First name: ")
+    #     last = input("last name: ")
+    #     return cls(first, last)
 
-    def newPilot(num_pilots_n):
-        first = input("First name: ")
-        last = input("last name: ")
+    def newPilot():
+
         print(num_pilots_n)
         i = 0
         pilots = []
         while i <= num_pilots_n:
-            #print (num_pilots_n)
-            Pilot(self, first, last)
-            pilots.append()
+            print (num_pilots_n)
+            pilot = Pilot(first, last)
+            pilots.append(pilot)
             i += 1
+            print(pilot)
 
 
 event1 = Event.from_input()
@@ -86,4 +81,5 @@ print ("---------------------------")
 print (event1.location)
 print ("---------------------------")
 print ("---------------------------")
-event1.addPilot()
+
+event1.addPilot
