@@ -65,11 +65,11 @@ class Pilot:
 
     def newPilot():
 
-        print(num_pilots_n)
+        #print(num_pilots_n)
         i = 0
         pilots = []
         while i <= num_pilots_n:
-            print (num_pilots_n)
+            print(num_pilots_n)
             pilot = Pilot(first, last)
             pilots.append(pilot)
             i += 1
@@ -77,9 +77,10 @@ class Pilot:
 
 
 event1 = Event.from_input()
-print ("---------------------------")
-print (event1.location)
-print ("---------------------------")
-print ("---------------------------")
+print("---------------------------")
+print(event1.location)
+print("---------------------------")
+print("---------------------------")
 
 event1.addPilot
+print()

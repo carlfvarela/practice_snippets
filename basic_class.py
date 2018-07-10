@@ -2,15 +2,13 @@
 # -*- coding: utf-8 -*-
 # vim: ts=4 sts=4 sw=4 si et
 
-import sys
-
 
 class Event:
     def __init__(self, date, location, num_pilots_n):
 
         self.date = date
         self.location = location
-        self.num_pilots_n = num_pilots_n
+        self.num_pilots_n = int(num_pilots_n)
 
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
@@ -44,7 +42,7 @@ class Event:
             print("deu merda")
 
         finally:
-            return cls(date, location, num_pilots_n)
+            return cls(date, location, int(num_pilots_n))
 
     def addPilot(self, num_pilots_n):
         # i = 0
@@ -58,17 +56,15 @@ class Event:
         # print (i)
         first = input("First name: ")
         last = input("last name: ")
-        print(num_pilots_n)
+        print(type(num_pilots_n))
         i = 0
         pilots = []
         while i <= num_pilots_n:
-            #print (num_pilots_n)
-            Pilot(self, first, last)
-            pilots.append()
+            pilot = Pilot(first, last)
+            pilots.append(pilot)
             i += 1
 
-        print (pilots)
-        print (i)
+        print(pilot)
 
     # def registerPilot(self, num_pilots_n):
     #     i = 0
@@ -90,8 +86,9 @@ class Pilot:
 
 
 event1 = Event.from_input()
-print ("---------------------------")
-print (event1.location)
-print ("---------------------------")
-print ("---------------------------")
-event1.addPilot(1)
+print("---------------------------")
+print(event1.location)
+print("---------------------------")
+print("---------------------------")
+event1.addPilot(event1.num_pilots_n)
+print(event1)
