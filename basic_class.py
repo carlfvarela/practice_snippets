@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 # vim: ts=4 sts=4 sw=4 si et
 import sys
-import random
-import os
 
 
 class Event:
+
+    pilot_list = []
 
     def __init__(self, date, location, num_pilots_n):
 
@@ -16,6 +16,9 @@ class Event:
 
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
+
+    def eventLocation(self):
+        return '{} {}'.format(self.first, self.last)
 
     @classmethod
     def from_input(cls):
@@ -53,24 +56,19 @@ class Event:
             print("ĺast")
             last = sys.stdin.readline()
             print("---------------------------")
-            clear()
+
             num = i
-
-            pilot_list.append(Pilot(num, first, last))
-
-            for n in pilot_list:
-                print (n.__dict__['first'] + n.__dict__['last'])
-
-            #pilots = dict(zip(pilot_list))
-
+            self.pilot_list.append(Pilot(num, first.rstrip('\n'), last.rstrip('\n')))
+            print ("Pilot registered sucessfully")
             i += 1
-        #print (pilot_list)
 
-    def clear():
-        os.system('cls')
+    def getPilotList(self):
+        print ("Registered pilots")
+        for i in self.pilot_list:
+            print (i.__str__())
 
 
-class Pilot:
+class Pilot():
 
     def __init__(self, num, first, last):
         self.num = int(num)
@@ -80,6 +78,9 @@ class Pilot:
     def __str__(self):
         return '{} - {} {}'.format(self.num, self.first, self.last)
 
+    def getName(self):
+        return '{} {}'.format(self.first, self.last)
+
 
 event1 = Event.from_input()
 print("---------------------------")
@@ -87,4 +88,4 @@ print(event1.location)
 print("---------------------------")
 print("---------------------------")
 event1.addPilot(event1.num_pilots_n)
-print(event1)
+print (event1.getPilotList())
